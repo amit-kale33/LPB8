@@ -15,8 +15,7 @@ import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
-
+public class ELTC_006 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
@@ -47,9 +46,18 @@ public class LoginTests {
 	}
 	@Test
 	public void validLoginTest() {
+		screenShot.captureScreenShot();
+		
+		//1. Enter valid credentials in Username textbox
 		loginPOM.sendUserName("admin");
+		screenShot.captureScreenShot();
+		
+		//2. Enter valid credential in pass text box
 		loginPOM.sendPassword("admin@123");
+		screenShot.captureScreenShot();
+		
+		//3. Click on Login button
 		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot();//"First"
+		screenShot.captureScreenShot();
 	}
 }

@@ -30,17 +30,18 @@ public class ScreenShot {
 	public void captureScreenShot(){
 		
 		// to be changed 
-		String path = "C:\\Users\\Naveen\\Desktop\\screenshots\\";
+		String path = "C:\\Users\\AmitKale\\Desktop\\selenium training\\Java\\Selenium\\screenshots\\";
 		String fileName ="";
 
 		GregorianCalendar calendar = new GregorianCalendar(); 
 		
 		int date =  calendar.get(Calendar.DATE); 
+		int month =  calendar.get(Calendar.HOUR_OF_DAY);
 		int minute = calendar.get(Calendar.MINUTE);
 		int second = calendar.get(Calendar.SECOND); 
 		
 		
-		fileName = new Integer(date).toString() + "-" + new Integer(minute).toString() +"-" +
+		fileName = new Integer(date).toString() + "-" + new Integer(month).toString() + "-" + new Integer(minute).toString() +"-" +
 					new Integer(second).toString() +".png"; 
 		
 		// 1. create file 
@@ -66,7 +67,7 @@ public class ScreenShot {
 
 	public void captureScreenShot(String fileName){
 		
-		String path =  "C:\\Users\\Naveen\\Desktop\\screenshots\\";
+		String path =  "C:\\Users\\AmitKale\\Desktop\\selenium training\\Java\\Selenium\\screenshots\\";
 	
 		// 1. create file 
 		// 2. capture screenshot from selenium 

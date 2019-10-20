@@ -4,7 +4,9 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
@@ -15,8 +17,7 @@ import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class LoginTests {
-
+public class ELTC_004 {
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
@@ -46,10 +47,25 @@ public class LoginTests {
 		driver.quit();
 	}
 	@Test
-	public void validLoginTest() {
-		loginPOM.sendUserName("admin");
-		loginPOM.sendPassword("admin@123");
-		loginPOM.clickLoginBtn(); 
-		screenShot.captureScreenShot();//"First"
+	public void eltc004_ak() {
+		screenShot.captureScreenShot();
+		
+		//Click on I Lost my password link
+		loginPOM.clickiLostMyPasswordBtn();
+		screenShot.captureScreenShot();
+		
+		//Enter valid credentials in Username or email textbox
+		loginPOM.sendlostPasswordUser("amit.kale334");
+		screenShot.captureScreenShot();
+		
+		//Click on Send message button
+		loginPOM.clicklostPasswordSubmitBtn();
+		screenShot.captureScreenShot();
+		
+		//To check if test case is passed or fail.
+		String expected = "Your password has been reset";
+	  	String actual = driver.findElement(By.xpath("//div[@class='col-md-9 col-md-push-3']//div[@class='page-content']//div[@class='alert alert-info']")).getText();
+	  	Assert.assertEquals(expected, actual);
+
 	}
 }
